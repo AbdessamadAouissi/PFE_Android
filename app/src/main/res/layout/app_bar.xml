@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolBar"
+        app:title="My app toolbar"
+        android:elevation="3dp"
+        android:background="@drawable/tool_bar_style"
+        app:titleTextColor="#ffffff"
+        android:layout_margin="4dp"
+        android:layout_weight="1"
+        />
+
+
+    <FrameLayout
+        android:id="@+id/activity_main_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="613dp"
+        android:layout_weight="6"
+        android:layout_above="@id/activity_main_bottom_navigation" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/activity_main_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="#943BA3"
+        app:itemIconTint="@drawable/etat_colors"
+        app:itemTextColor="@drawable/etat_colors"
+        app:menu="@menu/menu_bar" />
+</LinearLayout>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".inscrireActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/draw1"
+    >
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:onClick="retour"/>
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/ic_person_add_black_24dp"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Créer votre compte"
+        android:textColor="#0F6CBD"
+        android:textSize="35dp"
+        android:textStyle="bold"
+
+
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_nom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            app:counterEnabled="true"
+            android:keyboardNavigationCluster="true"
+            android:textColorHint="#0F6CBD"
+            app:counterMaxLength="15"
+            app:errorEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:hint="Nom"
+                android:padding="10dp"
+                android:textColor="#0F6CBD"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_prenom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            android:keyboardNavigationCluster="true"
+            android:textColorHint="#0F6CBD"
+            app:counterMaxLength="15"
+            app:errorEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:hint="Prenon"
+                android:padding="10dp"
+                android:textColor="#0F6CBD"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_text_phone"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:gravity="center"
+        android:textColorHint="#0F6CBD"
+        android:layout_marginTop="10dp"
+        >
+        <com.santalu.maskedittext.MaskEditText
+            android:id="@+id/edit_text_phone1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Numero de Telephone"
+            android:inputType="phone"
+            app:met_mask="##.##.##.##.##" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_mail"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:gravity="center"
+        android:textColorHint="#0F6CBD"
+        android:layout_marginTop="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="290dp"
+            android:layout_height="50dp"
+
+            android:hint="Email"
+            android:keyboardNavigationCluster="true"
+            android:textColor="#0F6CBD"
+            android:padding="10dp"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_pdw"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="#0F6CBD"
+        android:gravity="center"
+        app:errorEnabled="true"
+        app:passwordToggleEnabled="true"
+        android:layout_marginTop="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="290dp"
+            android:layout_height="50dp"
+            android:keyboardNavigationCluster="true"
+            android:hint="Password"
+            android:textColor="#0F6CBD"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_pwdConf"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="#0F6CBD"
+        android:gravity="center"
+        app:errorEnabled="true"
+        app:passwordToggleEnabled="true"
+        android:layout_marginTop="10dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="290dp"
+            android:layout_height="50dp"
+            android:keyboardNavigationCluster="true"
+            android:hint="@string/confirmer_mot_de_passe"
+            android:textColor="#0F6CBD"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_inscrire"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:text="@string/btn_s_inscrire"
+        android:onClick="inscrire"
+        android:background="@drawable/back_btn"
+
+        />
+
+
+</LinearLayout>

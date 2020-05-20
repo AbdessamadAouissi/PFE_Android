@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/nav_home"
+    android:title="Acceuil"
+    android:icon="@drawable/home_icon"/>
+<item
+    android:id="@+id/annonce"
+    android:title="Déposer une annonce"
+    android:icon="@drawable/add_annonce_icon"/>
+<item
+    android:id="@+id/fav"
+    android:title="Annonces favorites"
+    android:icon="@drawable/fav_icon"/>
+<item
+    android:id="@+id/notif"
+    android:title="Notifications"
+    android:icon="@drawable/notif_icon"/>
+<item
+    android:id="@+id/account"
+    android:title="Se connecter"
+    android:icon="@drawable/account_icon"/>
+</menu>
