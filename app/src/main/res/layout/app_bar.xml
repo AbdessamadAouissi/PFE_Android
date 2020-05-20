@@ -15,7 +15,7 @@
         android:background="@drawable/tool_bar_style"
         app:titleTextColor="#ffffff"
         android:layout_margin="4dp"
-        android:layout_weight="0.3"
+        android:layout_weight="1"
         />
 
 
@@ -30,7 +30,7 @@
         android:id="@+id/activity_main_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.3"
+        android:layout_weight="1"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         android:background="#943BA3"
