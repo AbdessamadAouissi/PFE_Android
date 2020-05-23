@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLONE_TELE="telephone";
     public static final String COLONE_EMAIL="email";
     public static final String COLONE_PWD="pwd";
-//wach feha
+
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
