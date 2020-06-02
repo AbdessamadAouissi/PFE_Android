@@ -32,6 +32,13 @@
         android:textStyle="bold"
 
         />
+    <ProgressBar
+        android:id="@+id/progress_bar_signin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+        android:visibility="gone" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_login"

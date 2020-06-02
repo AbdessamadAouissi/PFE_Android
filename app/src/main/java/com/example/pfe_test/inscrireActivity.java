@@ -1,15 +1,26 @@
 package com.example.pfe_test;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.pfe_test.modele.users;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.santalu.maskedittext.MaskEditText;
 
 
@@ -22,14 +33,19 @@ public class inscrireActivity extends AppCompatActivity {
     private TextInputLayout PWD;
     private TextInputLayout PWD_CONFIRMER;
     private Button inscrire;
+    private ProgressBar progressBar;
 
-    DatabaseHelper db;
 
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
+    private FirebaseAuth Auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscrire);
-        db = new DatabaseHelper(this);
+
+
+        Auth = FirebaseAuth.getInstance();
 
         NOM = (TextInputLayout) findViewById(R.id.text_input_nom);
         PRENOM = (TextInputLayout) findViewById(R.id.text_input_prenom);
@@ -39,9 +55,62 @@ public class inscrireActivity extends AppCompatActivity {
         PWD = (TextInputLayout) findViewById(R.id.text_input_pdw);
         PWD_CONFIRMER = (TextInputLayout) findViewById(R.id.text_input_pwdConf);
         inscrire = (Button) findViewById(R.id.btn_inscrire);
+        progressBar = (ProgressBar)findViewById(R.id.progress_bar_signup);
 
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference=firebaseDatabase.getReference("Utilisateurs");
+
+
+        inscrire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (!validate_nom() | !validatePhone() | !validate_prenom() | !validateEmail() | !validatePassword() | !validatePasswordConfirmer() ) {
+                    return;
+                }
+                final String nom = NOM.getEditText().getText().toString();
+                final String prenom = PRENOM.getEditText().getText().toString();
+                final String tele = textofTELEPHONE.getRawText();
+                final String email = EMAIL.getEditText().getText().toString();
+                final String pwd = PWD.getEditText().getText().toString();
+
+
+                progressBar.setVisibility(View.VISIBLE);
+
+
+                Auth.createUserWithEmailAndPassword(email, pwd)
+                        .addOnCompleteListener(inscrireActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+
+                                    users user = new users(nom,prenom,tele,email,pwd);
+
+                                    databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(inscrireActivity.this,"Inscription avec succès",Toast.LENGTH_SHORT).show();
+                                            inscrireActivity.this.finish();
+                                        }
+                                    });
+
+                                } else {
+                                    Toast.makeText(inscrireActivity.this,"Erreur d'inscription",Toast.LENGTH_SHORT).show();
+                                    progressBar.setVisibility(View.GONE);
+                                }
+
+
+                            }
+                        });
+
+
+
+            }
+        });
 
     }
+
 
     private boolean validate_nom() {
         String nom = NOM.getEditText().getText().toString().trim();
@@ -105,6 +174,9 @@ public class inscrireActivity extends AppCompatActivity {
         if (passwordInput.isEmpty()) {
             PWD.setError("Mot de passe est vide !");
             return false;
+        } else if(passwordInput.length() < 6){
+            PWD.setError("Saisir un mot de passe de lengeur sup ou egale à 6");
+            return false;
         } else {
             PWD.setError(null);
             return true;
@@ -119,7 +191,10 @@ public class inscrireActivity extends AppCompatActivity {
         } else if (!passwordInput.equals(PWD.getEditText().getText().toString())) {
             PWD_CONFIRMER.setError("Mot de passe confirmer est erroné");
             return false;
-        } else {
+        }else if(passwordInput.length() < 6){
+            PWD_CONFIRMER.setError("Saisir un mot de passe de lengeur sup ou egale à 6");
+            return false;
+        } else{
             PWD_CONFIRMER.setError(null);
             return true;
         }
@@ -130,28 +205,6 @@ public class inscrireActivity extends AppCompatActivity {
         inscrireActivity.this.finish();
     }
 
-    public void inscrire(View view) {
-        if (!validate_nom() | !validatePhone() | !validate_prenom() | !validateEmail() | !validatePassword() | !validatePasswordConfirmer() ) {
-            return;
-        }
-        String nom = NOM.getEditText().getText().toString();
-        String prenom = PRENOM.getEditText().getText().toString();
-        String tele = textofTELEPHONE.getRawText();
-        String email = EMAIL.getEditText().getText().toString();
-        String pwd = PWD.getEditText().getText().toString();
-
-
-
-            long val = db.addUser(nom,prenom,tele,email,pwd);
-            if(val > 0){
-                Toast.makeText(inscrireActivity.this,"Inscription avec succès",Toast.LENGTH_SHORT).show();
-                inscrireActivity.this.finish();
-            }
-            else{
-                Toast.makeText(inscrireActivity.this,"Erreur d'inscription",Toast.LENGTH_SHORT).show();
-            }
-
-    }
 
 
 }

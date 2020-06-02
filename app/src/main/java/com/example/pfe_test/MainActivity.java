@@ -14,6 +14,10 @@ package com.example.pfe_test;
         import android.view.MenuItem;
         import androidx.appcompat.widget.Toolbar;
 
+        import com.example.pfe_test.Fragments.fragmentAccueil;
+        import com.example.pfe_test.Fragments.fragmentCompte;
+        import com.example.pfe_test.Fragments.fragmentFavorie;
+        import com.example.pfe_test.Fragments.fragmentNotification;
         import com.google.android.material.bottomnavigation.BottomNavigationView;
         import com.google.android.material.navigation.NavigationView;
 

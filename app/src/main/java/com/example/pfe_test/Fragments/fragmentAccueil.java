@@ -1,5 +1,4 @@
-package com.example.pfe_test;
-
+package com.example.pfe_test.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.pfe_test.LoginActivity;
+import com.example.pfe_test.R;
+import com.example.pfe_test.modele.annonceItem;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -33,7 +37,14 @@ public class fragmentAccueil extends Fragment {
 
 
         fragmentAccueil.myAdapter adptr = new fragmentAccueil.myAdapter(listItemView);
-
+        FloatingActionButton btn_ajouter_annonce = v.findViewById(R.id.ajouterAnnonce);
+        btn_ajouter_annonce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inscrireIntent = new Intent(fragmentAccueil.this.getContext(), LoginActivity.class);
+                startActivity(inscrireIntent);
+            }
+        });
         ListView lv = v.findViewById(R.id.malist);
         lv.setAdapter(adptr);
         return v;
@@ -72,12 +83,12 @@ public class fragmentAccueil extends Fragment {
             TextView date = (TextView)V.findViewById(R.id.date);
             TextView ville = (TextView)V.findViewById(R.id.ville);
             TextView prix = (TextView)V.findViewById(R.id.prix);
-            img.setImageResource(listItemView.get(position).image);
-            titre.setText(listItemView.get(position).titre);
-            desc.setText(listItemView.get(position).description);
-            date.setText(listItemView.get(position).date);
-            ville.setText(listItemView.get(position).ville);
-            prix.setText(listItemView.get(position).prix);
+            img.setImageResource(listItemView.get(position).getImage());
+            titre.setText(listItemView.get(position).getTitre());
+            desc.setText(listItemView.get(position).getDescription());
+            date.setText(listItemView.get(position).getDate());
+            ville.setText(listItemView.get(position).getVille());
+            prix.setText(listItemView.get(position).getPrix());
             return V;
         }
     }

@@ -1,4 +1,4 @@
-package com.example.pfe_test;
+package com.example.pfe_test.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.pfe_test.LoginActivity;
+import com.example.pfe_test.R;
 
 public class fragmentCompte extends Fragment {
     @Nullable

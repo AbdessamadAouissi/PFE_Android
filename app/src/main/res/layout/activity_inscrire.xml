@@ -14,7 +14,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -38,11 +38,19 @@
 
 
         />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+        android:visibility="gone" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="1dp"
         >
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_nom"
@@ -163,7 +171,7 @@
         android:layout_width="290dp"
         android:layout_height="50dp"
         android:text="@string/btn_s_inscrire"
-        android:onClick="inscrire"
+
         android:background="@drawable/back_btn"
 
         />

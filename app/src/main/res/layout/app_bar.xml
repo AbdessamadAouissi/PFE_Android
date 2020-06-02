@@ -9,16 +9,15 @@
     /
 
     <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolBar"
-        app:title="My app toolbar"
-        android:elevation="3dp"
-        android:background="@drawable/tool_bar_style"
-        app:titleTextColor="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:layout_weight="0"
-        />
+        android:background="@drawable/tool_bar_style"
+        android:elevation="3dp"
+        app:title="bi3aWcharya"
+        app:titleTextColor="#ffffff" />
 
 
     <FrameLayout
@@ -35,7 +34,7 @@
         android:layout_weight="0"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-        android:background="#943BA3"
+        android:background="#A5F178"
         app:itemIconTint="@drawable/etat_colors"
         app:itemTextColor="@drawable/etat_colors"
         app:menu="@menu/menu_bar" />
