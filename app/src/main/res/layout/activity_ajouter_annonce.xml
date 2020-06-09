@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AjouterAnnonceActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="40dp">
+
+    <ImageView
+        android:id="@+id/addImg"
+        android:layout_width="326dp"
+        android:layout_height="222dp"
+
+        android:src="@drawable/index" />
+
+    <EditText
+        android:id="@+id/addTitre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Titre"
+        />
+    <EditText
+        android:id="@+id/addDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Description"
+        />
+    <EditText
+        android:id="@+id/addPrix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Prix"
+        />
+    <EditText
+        android:id="@+id/addVille"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Ville"
+        />
+    <EditText
+        android:id="@+id/addDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Date"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/linerly"
+        android:layout_width="285dp"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="52dp">
+
+        <Button
+            android:id="@+id/upload_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+
+            android:layout_weight="1"
+            android:text="Upload" />
+
+        <Button
+            android:id="@+id/choose_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+
+            android:layout_weight="1"
+            android:text="Choose image" />
+    </LinearLayout>
+</LinearLayout>
+</RelativeLayout>

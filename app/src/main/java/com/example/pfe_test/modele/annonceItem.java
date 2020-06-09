@@ -1,10 +1,13 @@
 package com.example.pfe_test.modele;
 
 public class annonceItem {
-    private String titre, description, prix, ville, date;
-    private int image;
+    private static String titre, description, prix, ville, date;
+    private static String image;
 
-    public annonceItem(int image, String titre, String description,String prix, String ville, String date ) {
+    public annonceItem() {
+    }
+
+    public annonceItem(String image, String titre, String description, String prix, String ville, String date ) {
         this.titre = titre;
         this.description = description;
         this.image=image;
@@ -35,7 +38,7 @@ public class annonceItem {
         return date;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
@@ -62,7 +65,7 @@ public class annonceItem {
         this.date = date;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PFE_Test</string>
+    <string name="app_name">PFE</string>
     <string name="email">Email</string>
     <string name="mot_de_passe">Mot de passe</string>
     <string name="se_connecter">Se connecter</string>
