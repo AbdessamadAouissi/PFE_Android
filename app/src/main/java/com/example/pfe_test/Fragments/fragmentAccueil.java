@@ -3,10 +3,12 @@ import android.app.ProgressDialog;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.EditText;
 
 
 import androidx.annotation.NonNull;
@@ -37,8 +39,8 @@ public class fragmentAccueil extends Fragment{
 
     public FloatingActionButton btn_ajouter_annonce;
     public RecyclerView recyclerView;
-    public RecyclerView.Adapter adapter;
-
+    public myAdapter adapter;
+    public EditText text_Search;
 
     public ArrayList<annonceItem> myList;
 
@@ -57,6 +59,7 @@ public class fragmentAccueil extends Fragment{
         recyclerView.setHasFixedSize(true);
         btn_ajouter_annonce = v.findViewById(R.id.ajouterAnnonce);
 
+        text_Search = v.findViewById(R.id.txt_search);
 
         progressDialog = new ProgressDialog(fragmentAccueil.this.getContext());
         progressDialog.setMessage("Loading ...");
@@ -107,6 +110,26 @@ public class fragmentAccueil extends Fragment{
         });
 
 
+        text_Search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                filtrer(editable.toString());
+                
+            }
+        });
+
+
         btn_ajouter_annonce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,11 +142,22 @@ public class fragmentAccueil extends Fragment{
         return v;
     }
 
+    private void filtrer(String toString) {
 
+        ArrayList<annonceItem> filterListe = new ArrayList<>();
+        for (annonceItem item : myList){
 
+            if (item.getTitre().toLowerCase().contains(toString.toLowerCase())){
 
+                filterListe.add(item);
 
+            }
 
+        }
+
+        adapter.filtrerList(filterListe);
+
+    }
 
 
 }

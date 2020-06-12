@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pfe_test.R;
@@ -12,6 +13,7 @@ import com.example.pfe_test.R;
 public class viewHolder extends RecyclerView.ViewHolder {
     private ImageView image;
     private TextView titre, description, prix, date, ville;
+    private CardView cardView;
 
     public viewHolder(@NonNull View itemView) {
         super(itemView);
@@ -21,6 +23,7 @@ public class viewHolder extends RecyclerView.ViewHolder {
         prix = itemView.findViewById(R.id.prix);
         date = itemView.findViewById(R.id.date);
         ville = itemView.findViewById(R.id.ville);
+        cardView = itemView.findViewById(R.id.cardView);
 
 
     }
@@ -49,5 +52,9 @@ public class viewHolder extends RecyclerView.ViewHolder {
 
     public TextView getVille() {
         return ville;
+    }
+
+    public CardView getCardView() {
+        return cardView;
     }
 }

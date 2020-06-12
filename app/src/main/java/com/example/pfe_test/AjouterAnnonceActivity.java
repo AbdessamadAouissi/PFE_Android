@@ -36,7 +36,7 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
 
     private Button btn_upload, btn_choose;
     private ImageView imageView;
-    private EditText tirte,description,prix,ville,date;
+    private EditText tirte,description,prix,ville;
     private Uri uri;
     private String UrlImage;
     private FirebaseStorage storage;
@@ -54,7 +54,7 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
         description=(EditText) findViewById(R.id.addDesc);
         prix=(EditText) findViewById(R.id.addPrix);
         ville=(EditText) findViewById(R.id.addVille);
-        date=(EditText) findViewById(R.id.addDate);
+
 
         btn_choose=(Button) findViewById(R.id.choose_btn);
         btn_upload=(Button) findViewById(R.id.upload_btn);
@@ -137,13 +137,18 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
 
     private void uploadDataOfAnnonce(){
 
+        Calendar calendar = Calendar.getInstance();
+        String DateAnnonce = calendar.get(Calendar.DAY_OF_MONTH)+"/"+calendar.get(Calendar.MONTH)+"/"+calendar.get(Calendar.YEAR);
+
+
+
         annonceItem annonce = new annonceItem(
                 UrlImage,
                 tirte.getText().toString(),
                 description.getText().toString(),
                 prix.getText().toString(),
                 ville.getText().toString(),
-                date.getText().toString()
+                DateAnnonce
         );
 
         String CourrentDate = DateFormat.getDateTimeInstance()
