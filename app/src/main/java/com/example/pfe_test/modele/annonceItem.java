@@ -1,8 +1,8 @@
 package com.example.pfe_test.modele;
 
 public class annonceItem {
-    private static String titre, description, prix, ville, date;
-    private static String image;
+    private String titre, description, prix, ville, date;
+    private String image;
 
     public annonceItem() {
     }
